@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./HomePage.css"
 import MovieCard from "./MovieCard";
+import axios from "axios";
 
 function HomePage() {
 
@@ -9,7 +10,7 @@ function HomePage() {
     axios
       .get("https://api.tvmaze.com/search/shows?q=all")
       .then((res) => {
-        console.log(res.data);
+        console.log(res.data); 
         setData(res.data);
       })
       .catch((err) => {
@@ -20,15 +21,9 @@ function HomePage() {
     return(
         <div>
         <div id="movieList" >
-        <MovieCard />
-        <MovieCard />
-        <MovieCard />
-        <MovieCard />
-        <MovieCard />
-        <MovieCard />
-        <MovieCard />
-        <MovieCard />
-        <MovieCard />
+        {
+            data.map((item) => { return <MovieCard item={item} key={item.id} />})
+        }
         </div>
         </div>
     )
