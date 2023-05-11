@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./HomePage.css"
 import MovieCard from "./MovieCard";
 import axios from "axios";
+import NavBar from "../NavBar/navBar";
 
 function HomePage() {
 
@@ -20,6 +21,7 @@ function HomePage() {
 
     return(
         <div>
+        <NavBar />
         <div id="movieList" >
         {
             data.map((item) => { return <MovieCard item={item} key={item.id} />})

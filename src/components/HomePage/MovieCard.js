@@ -4,13 +4,17 @@ import { useNavigate } from "react-router-dom";
 
 function MovieCard(item) {
     const navHandler = useNavigate();
-    console.log(item.item.show)
     var src = "https://static.tvmaze.com/uploads/images/medium_portrait/33/82953.jpg"
     var rating = "Not rated"
     if(item.item.show.image)
     src=item.item.show.image.medium
     if(item.item.show.rating.average)
     rating = item.item.show.rating.average
+    const genre = item.item.show.genres
+    var i = genre.length
+    var genres = " "
+    while(i--)
+    genres= genres + " " + genre[i]
 
     return(
         <div className="card">
@@ -26,7 +30,7 @@ function MovieCard(item) {
         </div>
         <div>
         <span>Genres : </span>
-        <span>{item.item.show.genres}</span>
+        <span>{genres}</span>
         </div>
         <div>
         <span>Status : </span>
