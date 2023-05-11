@@ -1,0 +1,22 @@
+body{
+    background-color: black;
+}
+
+#movieList{
+    display:flex;
+    flex-wrap: wrap;
+    margin: 20vh 10vw;
+    justify-content: space-between;
+}
+
+@media(max-width:800px) {
+    #movieList {
+        margin: 10vh 10vw;
+    }
+}
+
+@media(max-width:400px) {
+    #movieList {
+        margin: 10vh 0vw;
+    }
+}
