@@ -1,7 +1,9 @@
 import React from "react";
 import "./MovieCard.css"
+import { useNavigate } from "react-router-dom";
 
 function MovieCard(item) {
+    const navHandler = useNavigate();
     console.log(item.item.show)
     var src = "https://static.tvmaze.com/uploads/images/medium_portrait/33/82953.jpg"
     var rating = "Not rated"
@@ -9,7 +11,7 @@ function MovieCard(item) {
     src=item.item.show.image.medium
     if(item.item.show.rating.average)
     rating = item.item.show.rating.average
-    
+
     return(
         <div className="card">
         <p className="cardBlock">{item.item.show.name}</p>
@@ -51,7 +53,7 @@ function MovieCard(item) {
         <span>{item.item.show.schedule.time} </span>on
         <span> {item.item.show.schedule.days}</span>
         </div>
-        <div className="book"> Book Now </div>
+        <div className="book" onClick={() => navHandler(`/details`, {state:item.item})}> Book Now </div>
         </div>
         <div className="movieCard">
         <img src={src} alt={item.item.show.name} />
